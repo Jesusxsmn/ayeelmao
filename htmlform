@@ -1,0 +1,140 @@
+  <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+         <link rel="stylesheet" type="text/css" href="CSSforhtmlform.css">
+        <title> HTML form for Coursera
+        </title>
+        
+        <script>
+            //I had trouble linking an outside Js document to this, so I chose inline in order to make sure it worked. 
+    function validateName(first_name){
+      // this is a validation rule
+      var re = /[A-Za-z -']$/;
+      // here we check the input
+      if(re.test(document.getElementById(first_name).value)){
+        // Style green if good
+        document.getElementById(first_name).style.background ='#ccffcc';
+        // Hide error prompt
+        document.getElementById(first_name + 'Error').style.display = "none";
+        return true;
+      }else{
+        // Style red if bad
+        document.getElementById(first_name).style.background ='#e35152';
+        // Show error prompt
+        document.getElementById(first_name + 'Error').style.display = "block";
+        return false; 
+      }
+} 
+            function validateName(last_name){
+      // Validation rule
+      var re = /[A-Za-z -']$/;
+      // Check input
+      if(re.test(document.getElementById(last_name).value)){
+        // Style green
+        document.getElementById(last_name).style.background ='#ccffcc';
+        // Hide error prompt
+        document.getElementById(last_name + 'Error').style.display = "none";
+        return true;
+      }else{
+        // Style red
+        document.getElementById(last_name).style.background ='#e35152';
+        // Show error prompt
+        document.getElementById(last_name + 'Error').style.display = "block";
+        return false; 
+      }
+                function validateEmail(email){ 
+      var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(re.test(email)){
+        document.getElementById('email').style.background ='#ccffcc';
+        document.getElementById('emailError').style.display = "none";
+        return true;
+      }else{
+        document.getElementById('email').style.background ='#e35152';
+        return false;
+      }
+    }
+        </script>
+    <h2> This is a basic html form used for submitting user information into a website. I have made this form according to the course requirements. I have made sure that it has all the necessary things, such as Js validation, events, and css classes.</h2>
+    </head>
+    <body>
+<!-- This is a comment, as required by the rubric -->   
+ <a href="https://www.maps.google.com"><img id="Austin" style="float:left" src="https://fb-s-c-a.akamaihd.net/h-ak-fbx/v/t1.0-9/18519856_10101891391228993_2936470612540944111_n.jpg?oh=2b2610f07acee3d5eefd9d2c53993957&oe=5AD57703&__gda__=1519662813_af865587ba6940927fc358e8c72eb556">Travel!</a> 
+
+  <form name="htmlform" method="post" action="phpforhtmlform.php">
+<table width="450px">
+<tr>
+ <td valign="top">
+  <label for="first_name">First Name *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="first_name" maxlength="50" size="30" onblur="validateName(first_name)">
+ </td>
+</tr>
+ 
+<tr>
+ <td valign="top">
+  <label for="last_name">Last Name *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="last_name" maxlength="50" size="30" onblur="validateName(last_name)">
+ </td>
+</tr>
+    
+<tr>
+ <td valign="top">
+  <label for="email">Email Address *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="email" maxlength="80" size="30" onblur="validateName(email)">
+ </td>
+ </tr>
+    
+<tr>
+ <td valign="top">
+  <label for="telephone">Telephone Number *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="telephone" maxlength="30" size="30">
+ </td>
+</tr>
+    
+<tr>
+ <td valign="top">
+  <label for="comments">Comments *</label>
+ </td>
+ <td valign="top">
+  <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
+ </td>
+ </tr>
+    
+<tr>
+ <td colspan="2" style="text-align:center">
+  <input type="submit" value="Submit"> 
+ </td>
+</tr>
+</table>
+      
+      
+</form>
+    <form action="phpforhtmlform.php">
+ <input type="radio" name="concern" value="red" /> Answer ASAP<br />
+ <input type="radio" name="concern" value="white" /> Answer at leisure<br />
+ <input type="radio" name="concern" value="blue" /> Do not Reply<br />
+ <input type="radio" name="concern" value="green" /> Unsubscribe<br />
+</form>
+        
+
+    <form action="phpforhtmlform.php">
+ How did you hear about us? 
+ <select name="something">
+  <option value="Newspaper">Newspaper</option>
+  <option value="Friend">Friend</option>
+  <option value="Website">Website</option>
+  <option value="Ad">Ad</option>
+ </select>
+</form>
+
+       
+</body>
+</html>
